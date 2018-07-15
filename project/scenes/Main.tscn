@@ -7,7 +7,7 @@
 [ext_resource path="res://graphics/UI/blue_panel.png" type="Texture" id=5]
 [ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=6]
 
-[node name="world" type="Node2D"]
+[node name="world" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -33,6 +33,7 @@ tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 
 
 [node name="tm_paths" type="TileMap" parent="." index="1"]
 
+position = Vector2( 1.85059, 0 )
 mode = 0
 tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
@@ -77,12 +78,15 @@ editor_draw_limits = false
 editor_draw_drag_margin = false
 script = ExtResource( 4 )
 camera_speed = 15.0
+panSpeed = 10.0
 zoomspeed = 10.0
 zoommargin = 0.1
 zoommin = 0.5
 zoommax = 3.0
+marginX = 200.0
+marginY = 100.0
 
-[node name="CanvasModulate" type="CanvasLayer" parent="." index="3"]
+[node name="UI" type="CanvasLayer" parent="." index="3"]
 
 layer = 1
 offset = Vector2( 0, 0 )
@@ -90,7 +94,7 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Base" type="Control" parent="CanvasModulate" index="0"]
+[node name="Base" type="Control" parent="UI" index="0"]
 
 anchor_left = 0.0
 anchor_top = 1.0
@@ -103,14 +107,14 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="MenuBar" type="NinePatchRect" parent="CanvasModulate/Base" index="0"]
+[node name="MenuBar" type="NinePatchRect" parent="UI/Base" index="0"]
 
 modulate = Color( 1, 1, 1, 0.921569 )
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -86.0
+margin_top = -104.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
