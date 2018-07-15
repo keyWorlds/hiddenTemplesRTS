@@ -7,10 +7,7 @@ path="res://.import/grey_box.png-ff4acf3be08abdab0181dc6d7b25498a.stex"
 [deps]
 
 source_file="res://graphics/UI/grey_box.png"
-source_md5="a35f8012e8ce0ae6e395f1a1441a6d4d"
-
 dest_files=[ "res://.import/grey_box.png-ff4acf3be08abdab0181dc6d7b25498a.stex" ]
-dest_md5="ebe8d69e9cf93f89e745a0515e3068d0"
 
 [params]
 

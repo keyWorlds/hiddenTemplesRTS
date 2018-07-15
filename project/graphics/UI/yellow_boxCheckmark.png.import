@@ -7,10 +7,7 @@ path="res://.import/yellow_boxCheckmark.png-0e563280e5c776826b134fe9a12f577e.ste
 [deps]
 
 source_file="res://graphics/UI/yellow_boxCheckmark.png"
-source_md5="1ae1a700aab40cde3aedcb61a38978e6"
-
 dest_files=[ "res://.import/yellow_boxCheckmark.png-0e563280e5c776826b134fe9a12f577e.stex" ]
-dest_md5="5108e8182ca81c13ee05d7fff3be9b6f"
 
 [params]
 

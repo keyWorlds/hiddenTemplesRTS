@@ -7,10 +7,7 @@ path="res://.import/green_button03.png-a17f2c3180e1bbbdef424e2a7df503f6.stex"
 [deps]
 
 source_file="res://graphics/UI/green_button03.png"
-source_md5="c7556626d0a3ebbbef0a9a1135d44a0f"
-
 dest_files=[ "res://.import/green_button03.png-a17f2c3180e1bbbdef424e2a7df503f6.stex" ]
-dest_md5="bd272f6ad7fc0634d5a613a6364920e7"
 
 [params]
 

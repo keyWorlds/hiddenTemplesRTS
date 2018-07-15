@@ -7,10 +7,7 @@ path="res://.import/yellow_sliderUp.png-f7cd81beee206a7113c07514f8c6b63d.stex"
 [deps]
 
 source_file="res://graphics/UI/yellow_sliderUp.png"
-source_md5="26882e5a414e9047b91050c2e23bf394"
-
 dest_files=[ "res://.import/yellow_sliderUp.png-f7cd81beee206a7113c07514f8c6b63d.stex" ]
-dest_md5="91701a91c322b1020a94a36246374055"
 
 [params]
 

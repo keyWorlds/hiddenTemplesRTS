@@ -7,10 +7,7 @@ path="res://.import/blue_boxTick.png-3564f7d37ba1a12d2d1b8caa47370c9c.stex"
 [deps]
 
 source_file="res://graphics/UI/blue_boxTick.png"
-source_md5="326aacad6f4e36950a84e27f343dc6a3"
-
 dest_files=[ "res://.import/blue_boxTick.png-3564f7d37ba1a12d2d1b8caa47370c9c.stex" ]
-dest_md5="1256169fa21c9d3623075c630da834cc"
 
 [params]
 

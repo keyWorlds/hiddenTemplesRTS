@@ -7,10 +7,7 @@ path="res://.import/dropdownTop.png-02f3a20552fda13f7ab6d77a9c242ef9.stex"
 [deps]
 
 source_file="res://graphics/UI/dropdownTop.png"
-source_md5="ff931a11cac806207148128877f6b6af"
-
 dest_files=[ "res://.import/dropdownTop.png-02f3a20552fda13f7ab6d77a9c242ef9.stex" ]
-dest_md5="178f7fb9bbc6bc139b6fd4529eff0d23"
 
 [params]
 

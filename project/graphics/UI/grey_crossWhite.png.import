@@ -7,10 +7,7 @@ path="res://.import/grey_crossWhite.png-1f38a623c99e3a8811d0bff2fdaedf81.stex"
 [deps]
 
 source_file="res://graphics/UI/grey_crossWhite.png"
-source_md5="f29c8404a48276a64bebd4fa3ffe37cb"
-
 dest_files=[ "res://.import/grey_crossWhite.png-1f38a623c99e3a8811d0bff2fdaedf81.stex" ]
-dest_md5="075a7e60dc9889235000538b1a7ecafe"
 
 [params]
 

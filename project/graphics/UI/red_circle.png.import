@@ -7,10 +7,7 @@ path="res://.import/red_circle.png-315088774b20f52516b974795500c6de.stex"
 [deps]
 
 source_file="res://graphics/UI/red_circle.png"
-source_md5="727f68aecbd0b71464aa683776d6df4c"
-
 dest_files=[ "res://.import/red_circle.png-315088774b20f52516b974795500c6de.stex" ]
-dest_md5="ba05eddc9c2e7f7825e807a7f3db2b1b"
 
 [params]
 

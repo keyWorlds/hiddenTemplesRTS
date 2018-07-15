@@ -7,10 +7,7 @@ path="res://.import/grey_arrowDownGrey.png-2118f4e637e5c8a274a1d131b1820ce8.stex
 [deps]
 
 source_file="res://graphics/UI/grey_arrowDownGrey.png"
-source_md5="0278275ab5ef52e604b89dffa6263512"
-
 dest_files=[ "res://.import/grey_arrowDownGrey.png-2118f4e637e5c8a274a1d131b1820ce8.stex" ]
-dest_md5="9f0fcdef9679a9a550a0a0f78873fc64"
 
 [params]
 

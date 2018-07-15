@@ -1,17 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://tileset/env.res" type="TileSet" id=1]
-[ext_resource path="res://tileset/paths.res" type="TileSet" id=2]
-[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=3]
-[ext_resource path="res://graphics/UI/blue_panel.png" type="Texture" id=4]
-[ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scripts/worldManager.gd" type="Script" id=1]
+[ext_resource path="res://tileset/env.res" type="TileSet" id=2]
+[ext_resource path="res://tileset/paths.res" type="TileSet" id=3]
+[ext_resource path="res://scripts/Camera2D.gd" type="Script" id=4]
+[ext_resource path="res://graphics/UI/blue_panel.png" type="Texture" id=5]
+[ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=6]
 
 [node name="world" type="Node2D"]
+
+script = ExtResource( 1 )
 
 [node name="tm_env" type="TileMap" parent="." index="0"]
 
 mode = 0
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -31,7 +34,7 @@ tile_data = PoolIntArray( 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 
 [node name="tm_paths" type="TileMap" parent="." index="1"]
 
 mode = 0
-tile_set = ExtResource( 2 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 64, 64 )
 cell_quadrant_size = 16
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -72,7 +75,7 @@ drag_margin_bottom = 0.2
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = false
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 camera_speed = 15.0
 zoomspeed = 10.0
 zoommargin = 0.1
@@ -87,10 +90,10 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Control" type="Control" parent="CanvasModulate" index="0"]
+[node name="Base" type="Control" parent="CanvasModulate" index="0"]
 
 anchor_left = 0.0
-anchor_top = 0.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -100,8 +103,9 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 
-[node name="MenuBar" type="NinePatchRect" parent="CanvasModulate/Control" index="0"]
+[node name="MenuBar" type="NinePatchRect" parent="CanvasModulate/Base" index="0"]
 
+modulate = Color( 1, 1, 1, 0.921569 )
 anchor_left = 0.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -113,15 +117,21 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
-_sections_unfolded = [ "Patch Margin" ]
+_sections_unfolded = [ "Patch Margin", "Visibility" ]
 
-[node name="Unit" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Unit" parent="." index="4" instance=ExtResource( 6 )]
 
-position = Vector2( 601.779, 262.777 )
+[node name="Unit2" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 622.759, 642.127 )
+
+[node name="Unit3" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( 647.136, 185.618 )
 
 

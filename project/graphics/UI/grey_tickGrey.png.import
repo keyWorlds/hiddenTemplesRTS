@@ -7,10 +7,7 @@ path="res://.import/grey_tickGrey.png-345e6e16cf58003c2b944b8abcf57e40.stex"
 [deps]
 
 source_file="res://graphics/UI/grey_tickGrey.png"
-source_md5="0d874e5265b833e24dd558c30af3496e"
-
 dest_files=[ "res://.import/grey_tickGrey.png-345e6e16cf58003c2b944b8abcf57e40.stex" ]
-dest_md5="11db8903e820a39a35a43c8d4a13d970"
 
 [params]
 

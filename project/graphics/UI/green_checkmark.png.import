@@ -7,10 +7,7 @@ path="res://.import/green_checkmark.png-e077809952319ea3824ee8eb4ed0e226.stex"
 [deps]
 
 source_file="res://graphics/UI/green_checkmark.png"
-source_md5="33abb881157a187903055755dad08082"
-
 dest_files=[ "res://.import/green_checkmark.png-e077809952319ea3824ee8eb4ed0e226.stex" ]
-dest_md5="85cb0582b7245f51be77ac2561929e0d"
 
 [params]
 

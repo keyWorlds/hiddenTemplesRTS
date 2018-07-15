@@ -7,10 +7,7 @@ path="res://.import/green_boxCross.png-8259408e7ef8382279a9eff154350135.stex"
 [deps]
 
 source_file="res://graphics/UI/green_boxCross.png"
-source_md5="b001fe2ce68c4db1d0f93b29b9d3591f"
-
 dest_files=[ "res://.import/green_boxCross.png-8259408e7ef8382279a9eff154350135.stex" ]
-dest_md5="180301f595362962174579e9a2b86d94"
 
 [params]
 

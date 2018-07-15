@@ -7,10 +7,7 @@ path="res://.import/grey_panel.png-ecca12ad82da4662bf9c61182db850aa.stex"
 [deps]
 
 source_file="res://graphics/UI/grey_panel.png"
-source_md5="4e5babd36c3ed5305564507a7b20d997"
-
 dest_files=[ "res://.import/grey_panel.png-ecca12ad82da4662bf9c61182db850aa.stex" ]
-dest_md5="77a679740b3a3c2ce4160f41385e4840"
 
 [params]
 

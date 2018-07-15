@@ -7,10 +7,7 @@ path="res://.import/dropdownMid.png-ae350eb05f33e2fd0e7f524585b2f398.stex"
 [deps]
 
 source_file="res://graphics/UI/dropdownMid.png"
-source_md5="940bed64d5a8c2f2cacf210ce0e25ae8"
-
 dest_files=[ "res://.import/dropdownMid.png-ae350eb05f33e2fd0e7f524585b2f398.stex" ]
-dest_md5="695bc2e506cd978cbd185d9422fcd75d"
 
 [params]
 

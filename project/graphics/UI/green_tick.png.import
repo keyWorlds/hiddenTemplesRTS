@@ -7,10 +7,7 @@ path="res://.import/green_tick.png-1745895688c32ffc3bc5a123ba939e6b.stex"
 [deps]
 
 source_file="res://graphics/UI/green_tick.png"
-source_md5="83b7a1b3099aff07d600a01da486b2a2"
-
 dest_files=[ "res://.import/green_tick.png-1745895688c32ffc3bc5a123ba939e6b.stex" ]
-dest_md5="4ec7ff9d380807b5d2f905229936005a"
 
 [params]
 

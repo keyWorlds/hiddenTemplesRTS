@@ -7,10 +7,7 @@ path="res://.import/medievalUnit_02.png-2fe3f83963e4c2a048dd0ec43cbe93ce.stex"
 [deps]
 
 source_file="res://sprites/Unit/medievalUnit_02.png"
-source_md5="9dbef50dfe8bb21be20a47984f181f9a"
-
 dest_files=[ "res://.import/medievalUnit_02.png-2fe3f83963e4c2a048dd0ec43cbe93ce.stex" ]
-dest_md5="920e179ed6d1342aa6b56f544d34742b"
 
 [params]
 
