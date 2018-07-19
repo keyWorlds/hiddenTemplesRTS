@@ -20,7 +20,9 @@ use_filter = true
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Unit" type="KinematicBody2D"]
+[node name="Unit" type="KinematicBody2D" groups=[
+"units",
+]]
 
 position = Vector2( 256.67, 172.813 )
 input_pickable = true

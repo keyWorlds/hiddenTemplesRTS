@@ -11,10 +11,21 @@ export var marginX = 200.0
 export var marginY = 100.0
 
 var mousepos = Vector2()
+var mousePosGlobal = Vector2()
+var start = Vector2()
+var startv = Vector2()
+var end = Vector2()
+var endv = Vector2()
+
+var isDragging = false
 
 var zoompos = Vector2()
 var zoomfactor = 1.0
 var zooming = false
+
+onready var rectd = $"../UI/Base/drawRect"
+
+signal areaSelected
 
 func _ready():
 	pass
@@ -39,6 +50,23 @@ func _process(delta):
 		elif mousepos.y > OS.window_size.y - marginY:
 			position.y = lerp(position.y, position.y + abs(mousepos.y - OS.window_size.y + marginY)/marginY * panSpeed * zoom.y, panSpeed * delta)
 
+	# draggin!
+	if Input.is_action_just_pressed("ui_left_mouse_button"):
+		start = mousePosGlobal
+		startv = mousepos
+		isDragging = true
+	if isDragging:
+		end = mousePosGlobal
+		endv = mousepos
+		draw_area()
+	if Input.is_action_just_released("ui_left_mouse_button"):
+		if startv.distance_to(mousepos) > 20:
+			end = mousePosGlobal
+			endv = mousepos
+			isDragging = false
+			draw_area(false)
+			emit_signal("areaSelected")
+
 	# zoom management
 	zoom.x = lerp(zoom.x, zoom.x * zoomfactor, zoomspeed * delta)
 	zoom.y = lerp(zoom.y, zoom.y * zoomfactor, zoomspeed * delta)
@@ -62,3 +90,14 @@ func _input(event):
 		
 	if event is InputEventMouse:
 		mousepos = event.position
+
+func draw_area(s = true):
+		rectd.rect_size = Vector2(abs(startv.x - endv.x), abs(startv.y - endv.y))
+		
+		var pos = Vector2()
+		pos.x = min(startv.x, endv.x)
+		pos.y = min(startv.y, endv.y)
+		pos.y -= OS.window_size.y
+		rectd.rect_position = pos
+		
+		rectd.rect_size *= int(s)

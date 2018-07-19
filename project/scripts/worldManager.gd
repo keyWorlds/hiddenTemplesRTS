@@ -3,7 +3,12 @@ extends Node2D
 var selected_units = []
 var buttons = []
 
+var units = []
+
 onready var button = preload("res://scenes/Buttons.tscn")
+
+func _ready():
+	units = get_tree().get_nodes_in_group("units")
 
 func select_unit(unit):
 	if not selected_units.has(unit):
@@ -41,3 +46,27 @@ func button_was_pressed(obj):
 		if unit.name == obj.name:
 			unit.set_selected(false)
 			break
+
+func areaSelected(obj):
+	var start = obj.start
+	var end = obj.end
+	var area = []
+	area.append(Vector2(min(start.x, end.x), min(start.y, end.y)))
+	area.append(Vector2(min(start.x, end.x), min(start.y, end.y)))
+	var ut = get_units_in_area(area)
+	if not Input.is_key_pressed(KEY_SHIFT):
+		deselect_all()
+	for u in ut:
+		u.selected = not u.selected
+
+func get_units_in_area(area):
+	var u = []
+	for unit in units:
+		if unit.position.x > area[0].x and unit.position.x < area[1].x:
+			if unit.position.y > area[0].y and unit.position.y < area[1].y:
+				u.append(unit)
+	return u
+
+func deselect_all():
+	while selected_units.size() > 0:
+		selected_units[0].set_selected(false)
