@@ -10,6 +10,9 @@ export var zoommax = 3.0
 export var marginX = 200.0
 export var marginY = 100.0
 
+var initialPos
+var currentPos
+
 var mousepos = Vector2()
 var mousePosGlobal = Vector2()
 var start = Vector2()
@@ -28,7 +31,7 @@ onready var rectd = $"../UI/Base/drawRect"
 signal areaSelected
 
 func _ready():
-	pass
+	connect("areaSelected", get_parent(), "areaSelected", [self])
 
 func _process(delta):
 	# smooth camera movement
@@ -66,6 +69,10 @@ func _process(delta):
 			isDragging = false
 			draw_area(false)
 			emit_signal("areaSelected")
+		else:
+			end = start
+			isDragging = false
+			draw_area(false)
 
 	# zoom management
 	zoom.x = lerp(zoom.x, zoom.x * zoomfactor, zoomspeed * delta)
@@ -90,14 +97,15 @@ func _input(event):
 		
 	if event is InputEventMouse:
 		mousepos = event.position
+		mousePosGlobal = get_global_mouse_position()
 
 func draw_area(s = true):
 		rectd.rect_size = Vector2(abs(startv.x - endv.x), abs(startv.y - endv.y))
-		
+
 		var pos = Vector2()
 		pos.x = min(startv.x, endv.x)
 		pos.y = min(startv.y, endv.y)
 		pos.y -= OS.window_size.y
 		rectd.rect_position = pos
-		
+
 		rectd.rect_size *= int(s)

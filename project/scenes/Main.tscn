@@ -130,31 +130,38 @@ _sections_unfolded = [ "Patch Margin", "Visibility" ]
 
 [node name="drawRect" type="ColorRect" parent="UI/Base" index="1"]
 
-modulate = Color( 1, 1, 1, 0.469608 )
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = -104.0
-margin_right = 40.0
-margin_bottom = -64.0
+margin_left = 22.0
+margin_top = -410.0
+margin_right = 62.0
+margin_bottom = -370.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-color = Color( 0.179688, 0.133362, 0.133362, 1 )
-_sections_unfolded = [ "Visibility" ]
+color = Color( 1, 1, 1, 1 )
 
 [node name="Unit" parent="." index="4" instance=ExtResource( 6 )]
 
-[node name="Unit2" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Unit4" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 622.759, 642.127 )
+position = Vector2( 489.848, 354.174 )
 
-[node name="Unit3" parent="." index="6" instance=ExtResource( 6 )]
+[node name="Unit5" parent="." index="6" instance=ExtResource( 6 )]
 
-position = Vector2( 647.136, 185.618 )
+position = Vector2( 502.802, 113.593 )
+
+[node name="Unit2" parent="." index="7" instance=ExtResource( 6 )]
+
+position = Vector2( 693.082, 327.522 )
+
+[node name="Unit3" parent="." index="8" instance=ExtResource( 6 )]
+
+position = Vector2( 647.136, 183.618 )
 
 
