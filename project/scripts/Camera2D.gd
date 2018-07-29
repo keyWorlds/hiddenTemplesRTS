@@ -26,12 +26,16 @@ var zoompos = Vector2()
 var zoomfactor = 1.0
 var zooming = false
 
+var moveToPoint = Vector2()
+
 onready var rectd = $"../UI/Base/drawRect"
 
 signal areaSelected
+signal start_move_selection
 
 func _ready():
 	connect("areaSelected", get_parent(), "areaSelected", [self])
+	connect("start_move_selection", get_parent(), "start_move_selection", [self])
 
 func _process(delta):
 	# smooth camera movement
@@ -73,6 +77,10 @@ func _process(delta):
 			end = start
 			isDragging = false
 			draw_area(false)
+	
+	if Input.is_action_just_released("ui_right_mouse_button"):
+		moveToPoint = mousePosGlobal
+		emit_signal("start_move_selection")
 
 	# zoom management
 	zoom.x = lerp(zoom.x, zoom.x * zoomfactor, zoomspeed * delta)

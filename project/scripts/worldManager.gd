@@ -9,15 +9,36 @@ onready var area2d = preload("res://scenes/Area2D.tscn")
 
 func _ready():
 	units = get_tree().get_nodes_in_group("units")
-	print("unidades seleccionadas: " + str(units.size()))
+	print("unidades totales: " + str(units.size()))
 
 func select_unit(unit):
 	if not selected_units.has(unit):
 		selected_units.append(unit)
+	create_buttons()
 
 func deselect_unit(unit):
 	if selected_units.has(unit):
 		selected_units.erase(unit)
+		print("unidades seleccionadas: " + str(selected_units.size()))
+	create_buttons()
+
+func create_buttons():
+	delete_buttons()
+	for unit in selected_units:
+		if not buttons.has(unit.name):
+			var but = button.instance()
+			but.connect_me(self, unit.name)
+			but.rect_position = Vector2(buttons.size() * 100 , -90)
+			$'UI/Base'.add_child(but)
+			buttons.append(unit.name)
+
+func delete_buttons():
+	for but in buttons:
+		if $'UI/Base'.has_node(but):
+			var b = $'UI/Base'.get_node(but)
+			b.queue_free()
+			$'UI/Base'.remove_child(b)
+	buttons.clear()
 
 func button_was_pressed(obj):
 	for unit in selected_units:
@@ -30,8 +51,6 @@ func areaSelected(obj):
 	var end = obj.end
 	
 	var area = area2d.instance()
-	area.x = obj.start.x
-	area.y = obj.end.y
 
 	get_tree().get_root().get_node("world").add_child(area)
 
@@ -57,3 +76,8 @@ func get_units_in_area(area):
 func deselect_all():
 	while selected_units.size() > 0:
 		selected_units[0].set_selected(false)
+
+func start_move_selection(obj):
+	for unit in selected_units:
+		unit.moveUnit(obj.moveToPoint)
+	
