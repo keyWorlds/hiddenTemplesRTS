@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://units/Unit.gd" type="Script" id=1]
-[ext_resource path="res://sprites/Unit/medievalUnit_23.png" type="Texture" id=2]
-[ext_resource path="res://graphics/UI/grey_button07.png" type="Texture" id=3]
+[ext_resource path="res://graphics/UI/grey_button07.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Unit/medievalUnit_23.png" type="Texture" id=3]
 [ext_resource path="res://graphics/Font/kenvector_future_thin.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://graphics/UI/red_tick.png" type="Texture" id=5]
 [ext_resource path="res://graphics/UI/green_circle.png" type="Texture" id=6]
@@ -20,7 +20,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Unit" type="KinematicBody2D" groups=[
+[node name="Unit" type="KinematicBody2D" index="0" groups=[
 "units",
 ]]
 
@@ -35,24 +35,25 @@ __meta__ = {
 "_edit_group_": true
 }
 selected = false
+speed = 180
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="SelectionBox" type="Sprite" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0.411765 )
+position = Vector2( 0, 3.42857 )
+scale = Vector2( 1, 1.14286 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 0, 0.147313 )
 scale = Vector2( 1, 1.32454 )
 shape = SubResource( 1 )
 
-[node name="BasicUnitSprite" type="Sprite" parent="." index="1"]
+[node name="BasicUnitSprite" type="Sprite" parent="." index="2"]
 
-texture = ExtResource( 2 )
-
-[node name="SelectionBox" type="Sprite" parent="." index="2"]
-
-modulate = Color( 1, 1, 1, 0.40502 )
-position = Vector2( 0, 3.42857 )
-scale = Vector2( 1, 1.14286 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Material", "Visibility" ]
 
 [node name="UnitLabel" type="Label" parent="." index="3"]
 

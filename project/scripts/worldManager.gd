@@ -11,6 +11,8 @@ func _ready():
 	units = get_tree().get_nodes_in_group("units")
 	print("unidades totales: " + str(units.size()))
 
+# units
+
 func select_unit(unit):
 	if not selected_units.has(unit):
 		selected_units.append(unit)
@@ -22,29 +24,7 @@ func deselect_unit(unit):
 		print("unidades seleccionadas: " + str(selected_units.size()))
 	create_buttons()
 
-func create_buttons():
-	delete_buttons()
-	for unit in selected_units:
-		if not buttons.has(unit.name):
-			var but = button.instance()
-			but.connect_me(self, unit.name)
-			but.rect_position = Vector2(buttons.size() * 100 , -90)
-			$'UI/Base'.add_child(but)
-			buttons.append(unit.name)
-
-func delete_buttons():
-	for but in buttons:
-		if $'UI/Base'.has_node(but):
-			var b = $'UI/Base'.get_node(but)
-			b.queue_free()
-			$'UI/Base'.remove_child(b)
-	buttons.clear()
-
-func button_was_pressed(obj):
-	for unit in selected_units:
-		if unit.name == obj.name:
-			unit.set_selected(false)
-			break
+# area selection (wip)
 
 func areaSelected(obj):
 	var start = obj.start
@@ -80,4 +60,30 @@ func deselect_all():
 func start_move_selection(obj):
 	for unit in selected_units:
 		unit.moveUnit(obj.moveToPoint)
-	
+
+# gui
+
+func create_buttons():
+	delete_buttons()
+	for unit in selected_units:
+		if not buttons.has(unit.name):
+			var but = button.instance()
+			but.connect_me(self, unit.name)
+			but.rect_position = Vector2(buttons.size() * 100 , -90)
+			$'UI/Base'.add_child(but)
+			buttons.append(unit.name)
+
+func delete_buttons():
+	for but in buttons:
+		if $'UI/Base'.has_node(but):
+			var b = $'UI/Base'.get_node(but)
+			b.queue_free()
+			$'UI/Base'.remove_child(b)
+	buttons.clear()
+
+func button_was_pressed(obj):
+	print("unit button")
+	for unit in selected_units:
+		if unit.name == obj.name:
+			unit.set_selected(false)
+			break

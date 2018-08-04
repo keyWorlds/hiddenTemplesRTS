@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://building/Building.gd" type="Script" id=1]
+[ext_resource path="res://graphics/UI/blue_button06.png" type="Texture" id=2]
+[ext_resource path="res://sprites/Structure/medievalStructure_05.png" type="Texture" id=3]
+[ext_resource path="res://sprites/Structure/medievalStructure_01.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 13.7276, 12.5227 )
+
+[node name="building" type="KinematicBody2D" index="0"]
+
+position = Vector2( 429.57, 235.791 )
+scale = Vector2( 1.39628, 1.6436 )
+input_pickable = true
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Pickable" ]
+selected = false
+
+[node name="SelectionBox" type="Sprite" parent="." index="0"]
+
+modulate = Color( 1, 1, 1, 0.411765 )
+position = Vector2( -0.247101, 2.29234 )
+scale = Vector2( 1.99045, 2.27403 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Material", "Visibility" ]
+
+[node name="medievalStructure_05" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0.141266, 25.4823 )
+scale = Vector2( 1.39945, 0.781084 )
+texture = ExtResource( 3 )
+
+[node name="medievalStructure_01" type="Sprite" parent="." index="2"]
+
+position = Vector2( 0.0112, -28.7145 )
+scale = Vector2( 1.39353, 0.915455 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+
+position = Vector2( 0.482788, 0.0622406 )
+scale = Vector2( 3.97862, 4.68669 )
+shape = SubResource( 1 )
+
+[connection signal="input_event" from="." to="." method="_on_building_input_event"]
+
+
