@@ -4,7 +4,10 @@ var selected_units = []
 var units = []
 var buttons = []
 
+var create_brave_b
+
 onready var button = preload("res://scenes/Buttons.tscn")
+onready var create_brave_button = preload("res://scenes/ButtonsCU.tscn")
 onready var area2d = preload("res://scenes/Area2D.tscn")
 
 func _ready():
@@ -23,6 +26,16 @@ func deselect_unit(unit):
 		selected_units.erase(unit)
 		print("unidades seleccionadas: " + str(selected_units.size()))
 	create_buttons()
+
+# buildings
+
+func select_cu(cu):
+	create_cu_button()
+	print("select cu, create button")
+
+func unselect_cu(cu):
+	delete_cu_button()
+	print("unselect cu, delete button")
 
 # area selection (wip)
 
@@ -74,6 +87,7 @@ func create_buttons():
 			buttons.append(unit.name)
 
 func delete_buttons():
+	print("deleting!")
 	for but in buttons:
 		if $'UI/Base'.has_node(but):
 			var b = $'UI/Base'.get_node(but)
@@ -87,3 +101,17 @@ func button_was_pressed(obj):
 		if unit.name == obj.name:
 			unit.set_selected(false)
 			break
+
+func create_cu_button():
+	create_brave_b = create_brave_button.instance()
+	create_brave_b.connect_me(self, "Moar braves")
+	create_brave_b.rect_position = Vector2(50, -90)
+	$'UI/Base'.add_child(create_brave_b)
+
+func delete_cu_button():
+	create_brave_b.queue_free()
+	$'UI/Base'.remove_child(create_brave_b)
+
+func create_brave(obj):
+	print("Brave was created!")
+	

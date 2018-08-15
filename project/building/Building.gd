@@ -8,14 +8,18 @@ signal was_selected
 signal was_unselected
 
 func _ready():
-	connect("was_selected", get_parent(), "cu_selected")
-	connect("was_unselected", get_parent(), "cu_unselected")
+	connect("was_selected", get_parent(), "select_cu")
+	connect("was_unselected", get_parent(), "unselect_cu")
 	box.visible = false
 
 func set_selected(value):
 	if selected != value:
 		selected = value
 		box.visible = value
+	if selected:
+		emit_signal("was_selected", self)
+	else:
+		emit_signal("was_unselected", self)
 
 func _on_building_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
