@@ -2,8 +2,9 @@ extends Node2D
 
 var selected_units = []
 var units = []
-var buttons = []
+var unit_buttons = []
 
+var cu
 var create_brave_b
 
 onready var button = preload("res://scenes/Buttons.tscn")
@@ -12,30 +13,32 @@ onready var area2d = preload("res://scenes/Area2D.tscn")
 
 func _ready():
 	units = get_tree().get_nodes_in_group("units")
+	cu = get_node("CU")
 	print("unidades totales: " + str(units.size()))
 
 # units
 
 func select_unit(unit):
+	if (cu.selected):
+		cu.set_selected(false)
 	if not selected_units.has(unit):
 		selected_units.append(unit)
-	create_buttons()
+	create_unit_buttons()
 
 func deselect_unit(unit):
 	if selected_units.has(unit):
 		selected_units.erase(unit)
 		print("unidades seleccionadas: " + str(selected_units.size()))
-	create_buttons()
+	create_unit_buttons()
 
 # buildings
 
 func select_cu(cu):
+	deselect_all_units()
 	create_cu_button()
-	print("select cu, create button")
 
 func unselect_cu(cu):
 	delete_cu_button()
-	print("unselect cu, delete button")
 
 # area selection (wip)
 
@@ -54,7 +57,7 @@ func areaSelected(obj):
 			selected_units.append(i)
 	
 	if not Input.is_key_pressed(KEY_SHIFT):
-		deselect_all()
+		deselect_all_units()
 	for u in selected_units:
 		u.selected = not u.selected
 
@@ -66,7 +69,7 @@ func get_units_in_area(area):
 				u.append(unit)
 	return u
 
-func deselect_all():
+func deselect_all_units():
 	while selected_units.size() > 0:
 		selected_units[0].set_selected(false)
 
@@ -76,24 +79,25 @@ func start_move_selection(obj):
 
 # gui
 
-func create_buttons():
-	delete_buttons()
+## units
+
+func create_unit_buttons():
+	delete_unit_buttons()
 	for unit in selected_units:
-		if not buttons.has(unit.name):
+		if not unit_buttons.has(unit.name):
 			var but = button.instance()
 			but.connect_me(self, unit.name)
-			but.rect_position = Vector2(buttons.size() * 100 , -90)
+			but.rect_position = Vector2(unit_buttons.size() * 100 , -90)
 			$'UI/Base'.add_child(but)
-			buttons.append(unit.name)
+			unit_buttons.append(unit.name)
 
-func delete_buttons():
-	print("deleting!")
-	for but in buttons:
+func delete_unit_buttons():
+	for but in unit_buttons:
 		if $'UI/Base'.has_node(but):
 			var b = $'UI/Base'.get_node(but)
 			b.queue_free()
 			$'UI/Base'.remove_child(b)
-	buttons.clear()
+	unit_buttons.clear()
 
 func button_was_pressed(obj):
 	print("unit button")
@@ -101,6 +105,8 @@ func button_was_pressed(obj):
 		if unit.name == obj.name:
 			unit.set_selected(false)
 			break
+
+## buildings
 
 func create_cu_button():
 	create_brave_b = create_brave_button.instance()
