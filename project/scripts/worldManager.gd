@@ -6,6 +6,9 @@ var unit_buttons = []
 
 var cu
 var create_brave_b
+var spawner
+
+onready var brave = preload("res://units/basicUnit.tscn")
 
 onready var button = preload("res://scenes/Buttons.tscn")
 onready var create_brave_button = preload("res://scenes/ButtonsCU.tscn")
@@ -14,11 +17,13 @@ onready var area2d = preload("res://scenes/Area2D.tscn")
 func _ready():
 	units = get_tree().get_nodes_in_group("units")
 	cu = get_node("CU")
+	spawner = get_node("UnitSpawner")
 	print("unidades totales: " + str(units.size()))
 
 # units
 
 func select_unit(unit):
+	print("unidad seleccionada, unidades seleccionadas totales: " + str(selected_units.size()))
 	if (cu.selected):
 		cu.set_selected(false)
 	if not selected_units.has(unit):
@@ -47,8 +52,7 @@ func areaSelected(obj):
 	var end = obj.end
 	
 	var area = area2d.instance()
-
-	get_tree().get_root().get_node("world").add_child(area)
+	add_child(area)
 
 	var body_list = area.get_overlapping_bodies()
 	print(body_list)
@@ -119,5 +123,7 @@ func delete_cu_button():
 	$'UI/Base'.remove_child(create_brave_b)
 
 func create_brave(obj):
-	print("Brave was created!")
-	
+	var newUnit = brave.instance()
+	add_child(newUnit)
+	newUnit.setup(spawner.position, "Brave")
+	units.append(newUnit)

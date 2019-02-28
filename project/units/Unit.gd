@@ -65,4 +65,10 @@ func moveUnit(point):
 	moveTo = point
 	moveOnPath = true
 
+func setup(pos, unitName):
+	position = pos
+	changeName(unitName)
 
+func changeName(unitName):
+	name = unitName
+	$UnitLabel.text = unitName
