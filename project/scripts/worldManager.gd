@@ -1,11 +1,14 @@
 extends Node2D
 
+onready var unit = preload("res://units/basicUnit.tscn")
+
 var selected_units = []
 var units = []
 var unit_buttons = []
 
 var cu
 var create_brave_b
+var spawner
 
 onready var button = preload("res://scenes/Buttons.tscn")
 onready var create_brave_button = preload("res://scenes/ButtonsCU.tscn")
@@ -14,6 +17,7 @@ onready var area2d = preload("res://scenes/Area2D.tscn")
 func _ready():
 	units = get_tree().get_nodes_in_group("units")
 	cu = get_node("CU")
+	spawner = get_node("UnitSpawner")
 	print("unidades totales: " + str(units.size()))
 
 # units
@@ -119,5 +123,8 @@ func delete_cu_button():
 	$'UI/Base'.remove_child(create_brave_b)
 
 func create_brave(obj):
-	print("Brave was created!")
+	var newUnit = unit.instance()
+	get_tree().get_root().get_node("world").add_child(newUnit)
+	newUnit.setPosition(spawner.position, "Brave")
+	
 	

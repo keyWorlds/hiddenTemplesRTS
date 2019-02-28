@@ -20,7 +20,7 @@ use_filter = true
 font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Unit" type="KinematicBody2D" index="0" groups=[
+[node name="Unit" type="KinematicBody2D" groups=[
 "units",
 ]]
 

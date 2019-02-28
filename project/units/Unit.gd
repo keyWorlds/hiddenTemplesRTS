@@ -26,7 +26,7 @@ func _ready():
 	box.visible = false
 	label.visible = false
 	lifebar.visible = false
-	label.text = name
+	setName(name)
 	lifebar.value = 100
 
 func _process(delta):
@@ -64,5 +64,13 @@ func move_towards(pos, point, delta):
 func moveUnit(point):
 	moveTo = point
 	moveOnPath = true
+
+func setName(name):
+	$UnitLabel.text = name
+
+func setPosition(pos, unitName):
+	position = pos
+	name = unitName
+	setName(unitName)
 
 
