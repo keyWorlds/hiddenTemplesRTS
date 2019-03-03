@@ -70,5 +70,6 @@ func setup(pos, unitName):
 	changeName(unitName)
 
 func changeName(unitName):
+	self.name = unitName
 	name = unitName
 	$UnitLabel.text = unitName

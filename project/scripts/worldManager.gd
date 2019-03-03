@@ -18,12 +18,10 @@ func _ready():
 	units = get_tree().get_nodes_in_group("units")
 	cu = get_node("CU")
 	spawner = get_node("UnitSpawner")
-	print("unidades totales: " + str(units.size()))
 
 # units
 
 func select_unit(unit):
-	print("unidad seleccionada, unidades seleccionadas totales: " + str(selected_units.size()))
 	if (cu.selected):
 		cu.set_selected(false)
 	if not selected_units.has(unit):
@@ -33,7 +31,6 @@ func select_unit(unit):
 func deselect_unit(unit):
 	if selected_units.has(unit):
 		selected_units.erase(unit)
-		print("unidades seleccionadas: " + str(selected_units.size()))
 	create_unit_buttons()
 
 # buildings
@@ -104,7 +101,6 @@ func delete_unit_buttons():
 	unit_buttons.clear()
 
 func button_was_pressed(obj):
-	print("unit button")
 	for unit in selected_units:
 		if unit.name == obj.name:
 			unit.set_selected(false)
@@ -114,7 +110,7 @@ func button_was_pressed(obj):
 
 func create_cu_button():
 	create_brave_b = create_brave_button.instance()
-	create_brave_b.connect_me(self, "Moar braves")
+	create_brave_b.connect_me(self, "Create brave")
 	create_brave_b.rect_position = Vector2(50, -90)
 	$'UI/Base'.add_child(create_brave_b)
 
@@ -124,6 +120,7 @@ func delete_cu_button():
 
 func create_brave(obj):
 	var newUnit = brave.instance()
-	add_child(newUnit)
-	newUnit.setup(spawner.position, "Brave")
 	units.append(newUnit)
+	var unitName = "Brave" + str(units.size())
+	add_child(newUnit)
+	newUnit.setup(spawner.position, unitName)
