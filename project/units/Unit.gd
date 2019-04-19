@@ -7,6 +7,7 @@ export var speed = 180
 onready var box = $SelectionBox
 onready var label = $UnitLabel
 onready var lifebar = $LifeBar
+onready var sprite = $BasicUnitSprite
 
 signal was_selected
 signal was_unselected
@@ -28,6 +29,7 @@ func _ready():
 	lifebar.visible = false
 	label.text = name
 	lifebar.value = 100
+	sprite.texture = load("res://sprites/Unit/medievalUnit_23.png")
 
 func _process(delta):
 	if moveOnPath:
