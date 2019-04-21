@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/worldManager.gd" type="Script" id=1]
 [ext_resource path="res://tileset/env.res" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://graphics/UI/blue_panel.png" type="Texture" id=5]
 [ext_resource path="res://scenes/CU.tscn" type="PackedScene" id=6]
 [ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/task/task.tscn" type="PackedScene" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 1281.11, -2.70424, 1285.66, 894.765, 510.508, 296.268, 508.014, 128.236, -0.3367, 892.493, 368.646, 295.589, -2.60876, -0.432175, 365.282, 125.785 )
@@ -83,4 +84,7 @@ position = Vector2( 647.136, 183.618 )
 
 [node name="UnitSpawner" type="Position2D" parent="."]
 position = Vector2( 559.973, 273.825 )
+
+[node name="Task" parent="." instance=ExtResource( 8 )]
+position = Vector2( 137.256, 408.685 )
 

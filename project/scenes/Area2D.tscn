@@ -2,42 +2,18 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 
-custom_solver_bias = 0.0
-extents = Vector2( 10, 10 )
-
 [node name="Area2D" type="Area2D"]
-
 position = Vector2( 99.2375, 66.8934 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
-
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.698953, 7.15832 )
 scale = Vector2( 2.57282, 2.65764 )
 shape = SubResource( 1 )
 
-[node name="ColorRect" type="ColorRect" parent="." index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
+[node name="ColorRect" type="ColorRect" parent="."]
 margin_left = -31.0
 margin_top = -30.0
 margin_right = 35.0
 margin_bottom = 35.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
 color = Color( 1, 1, 1, 0.447529 )
-
 

@@ -17,19 +17,28 @@ var moveTo = Vector2()
 var path = PoolVector2Array()
 var initialPos = Vector2()
 
-var unitname
 var life
 var attack
+
+var holdingResource
+var hasTask
 
 func _ready():
 	connect("was_selected", get_parent(), "select_unit")
 	connect("was_unselected", get_parent(), "deselect_unit")
+	
+	life = 10
+	attack = 5
+	
 	box.visible = false
 	label.visible = false
 	lifebar.visible = false
 	label.text = name
 	lifebar.value = 100
 	sprite.texture = load("res://sprites/Unit/medievalUnit_23.png")
+	
+	holdingResource = false
+	hasTask = false
 
 func _process(delta):
 	if moveOnPath:
@@ -38,6 +47,8 @@ func _process(delta):
 		moveOnPath = false
 	if path.size() > 0:
 		move_towards(initialPos, path[0], delta)
+
+# selection
 
 func set_selected(value):
 	if selected != value:
@@ -55,6 +66,8 @@ func _on_unit_input_event(viewport, event, shape_idx):
 		if event.button_index == BUTTON_LEFT:
 			set_selected(not selected)
 
+# movement
+
 func move_towards(pos, point, delta):
 	var v = (point - pos).normalized()
 	v *= delta * speed
@@ -66,6 +79,8 @@ func move_towards(pos, point, delta):
 func moveUnit(point):
 	moveTo = point
 	moveOnPath = true
+
+# creation
 
 func setup(pos, unitName):
 	position = pos

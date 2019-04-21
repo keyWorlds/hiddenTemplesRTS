@@ -17,9 +17,9 @@ func set_selected(value):
 		selected = value
 		box.visible = value
 	if selected:
-		emit_signal("was_selected", self)
+		emit_signal("was_selected")
 	else:
-		emit_signal("was_unselected", self)
+		emit_signal("was_unselected")
 
 func _on_building_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.is_pressed():
