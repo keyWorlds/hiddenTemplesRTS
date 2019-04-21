@@ -8,6 +8,8 @@ var cu
 var create_brave_b
 var spawner
 
+var resources = 0
+
 onready var brave = preload("res://units/basicUnit.tscn")
 
 onready var button = preload("res://scenes/Buttons.tscn")
@@ -18,6 +20,8 @@ func _ready():
 	units = get_tree().get_nodes_in_group("units")
 	cu = get_node("CU")
 	spawner = get_node("UnitSpawner")
+	
+	resources = 0
 
 # units
 
@@ -35,11 +39,11 @@ func deselect_unit(unit):
 
 # buildings
 
-func select_cu(cu):
+func select_cu():
 	deselect_all_units()
 	create_cu_button()
 
-func unselect_cu(cu):
+func unselect_cu():
 	delete_cu_button()
 
 # area selection (wip)
@@ -77,6 +81,24 @@ func deselect_all_units():
 func start_move_selection(obj):
 	for unit in selected_units:
 		unit.moveUnit(obj.moveToPoint)
+
+# resources
+
+var unitAtWork
+
+func set_task(resource):
+	if selected_units.size() > 0:
+		unitAtWork = selected_units[0]
+		unitAtWork.hasTask = true
+		print("task setted")
+
+func begin_task(resource):
+	if not unitAtWork.holdingResource:
+			print("begin task")
+
+func task_ended(resource):
+	unitAtWork.holdingResource = true
+	print("task ended")
 
 # gui
 
