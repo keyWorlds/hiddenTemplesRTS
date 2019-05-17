@@ -15,6 +15,7 @@ onready var brave = preload("res://units/basicUnit.tscn")
 onready var button = preload("res://scenes/Buttons.tscn")
 onready var create_brave_button = preload("res://scenes/ButtonsCU.tscn")
 onready var area2d = preload("res://scenes/Area2D.tscn")
+onready var exitDialog = get_node("UI/Base/ExitDialog")
 
 func _ready():
 	units = get_tree().get_nodes_in_group("units")
@@ -101,6 +102,16 @@ func task_ended(resource):
 	print("task ended")
 
 # gui
+
+## exit game controller
+
+func _on_ExitButton_pressed():
+	exitDialog.popup()
+
+func _on_ExitDialog_confirmed():
+	print("go to save scene")
+	# go to save_load scene
+	pass
 
 ## units
 

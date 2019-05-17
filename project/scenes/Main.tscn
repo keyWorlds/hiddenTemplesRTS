@@ -65,6 +65,21 @@ margin_top = -410.0
 margin_right = 62.0
 margin_bottom = -370.0
 
+[node name="ExitButton" type="Button" parent="UI/Base"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -132.522
+margin_top = -595.4
+margin_right = -4.52209
+margin_bottom = -563.4
+text = "Exit"
+
+[node name="ExitDialog" type="ConfirmationDialog" parent="UI/Base"]
+margin_left = 397.938
+margin_top = -343.674
+margin_right = 597.938
+margin_bottom = -273.674
+
 [node name="CU" parent="." instance=ExtResource( 6 )]
 position = Vector2( 437.184, 215.694 )
 
@@ -88,3 +103,5 @@ position = Vector2( 559.973, 273.825 )
 [node name="Task" parent="." instance=ExtResource( 8 )]
 position = Vector2( 137.256, 408.685 )
 
+[connection signal="pressed" from="UI/Base/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="confirmed" from="UI/Base/ExitDialog" to="." method="_on_ExitDialog_confirmed"]
