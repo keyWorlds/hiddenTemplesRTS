@@ -109,8 +109,7 @@ func _on_ExitButton_pressed():
 	exitDialog.popup()
 
 func _on_ExitDialog_confirmed():
-	print("go to save scene")
-	# go to save_load scene
+	get_tree().change_scene("res://scenes/Menu.tscn")
 	pass
 
 ## units

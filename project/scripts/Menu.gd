@@ -4,7 +4,7 @@ func _on_StartButton_pressed():
 	get_tree().change_scene("res://scenes/Main.tscn")
 
 func _on_LoadButton_pressed():
-	# change to load scene
+	get_tree().change_scene("res://scenes/Load.tscn")
 	pass
 
 func _on_ExitButton_pressed():

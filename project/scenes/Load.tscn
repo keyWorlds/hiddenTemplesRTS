@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scripts/LoadScene.gd" type="Script" id=1]
+
+[node name="LoadScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="LoadButton" type="Button" parent="."]
+margin_left = 69.1385
+margin_top = 521.188
+margin_right = 259.138
+margin_bottom = 573.188
+text = "Load game"
+
+[node name="CancelButton" type="Button" parent="."]
+margin_left = 302.518
+margin_top = 518.363
+margin_right = 459.518
+margin_bottom = 574.363
+text = "Cancel"
+
+[node name="LoadedGames" type="ItemList" parent="."]
+margin_left = 68.0
+margin_top = 67.0
+margin_right = 969.0
+margin_bottom = 485.0
+[connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
+[connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]
+[connection signal="item_selected" from="LoadedGames" to="." method="_on_LoadedGames_item_selected"]

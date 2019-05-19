@@ -102,6 +102,5 @@ position = Vector2( 559.973, 273.825 )
 
 [node name="Task" parent="." instance=ExtResource( 8 )]
 position = Vector2( 137.256, 408.685 )
-
 [connection signal="pressed" from="UI/Base/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="confirmed" from="UI/Base/ExitDialog" to="." method="_on_ExitDialog_confirmed"]
