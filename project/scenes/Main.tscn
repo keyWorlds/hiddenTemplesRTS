@@ -4,10 +4,10 @@
 [ext_resource path="res://tileset/env.res" type="TileSet" id=2]
 [ext_resource path="res://tileset/paths.res" type="TileSet" id=3]
 [ext_resource path="res://scripts/Camera2D.gd" type="Script" id=4]
-[ext_resource path="res://graphics/UI/blue_panel.png" type="Texture" id=5]
-[ext_resource path="res://scenes/CU.tscn" type="PackedScene" id=6]
-[ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/task/task.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/task/task.tscn" type="PackedScene" id=5]
+[ext_resource path="res://graphics/UI/blue_panel.png" type="Texture" id=6]
+[ext_resource path="res://scenes/CU.tscn" type="PackedScene" id=7]
+[ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=8]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 1281.11, -2.70424, 1285.66, 894.765, 510.508, 296.268, 508.014, 128.236, -0.3367, 892.493, 368.646, 295.589, -2.60876, -0.432175, 365.282, 125.785 )
@@ -35,6 +35,9 @@ drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 script = ExtResource( 4 )
 
+[node name="Task" parent="." instance=ExtResource( 5 )]
+position = Vector2( 137.256, 408.685 )
+
 [node name="nav" type="Navigation2D" parent="."]
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="nav"]
@@ -53,7 +56,7 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = -104.0
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
@@ -80,27 +83,24 @@ margin_top = -343.674
 margin_right = 597.938
 margin_bottom = -273.674
 
-[node name="CU" parent="." instance=ExtResource( 6 )]
+[node name="CU" parent="." instance=ExtResource( 7 )]
 position = Vector2( 437.184, 215.694 )
 
-[node name="Unit" parent="." instance=ExtResource( 7 )]
+[node name="Unit" parent="." instance=ExtResource( 8 )]
 
-[node name="Unit4" parent="." instance=ExtResource( 7 )]
+[node name="Unit4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 489.848, 354.174 )
 
-[node name="Unit5" parent="." instance=ExtResource( 7 )]
+[node name="Unit5" parent="." instance=ExtResource( 8 )]
 position = Vector2( 606.942, 71.3246 )
 
-[node name="Unit2" parent="." instance=ExtResource( 7 )]
+[node name="Unit2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 724.082, 353.522 )
 
-[node name="Unit3" parent="." instance=ExtResource( 7 )]
+[node name="Unit3" parent="." instance=ExtResource( 8 )]
 position = Vector2( 647.136, 183.618 )
 
 [node name="UnitSpawner" type="Position2D" parent="."]
 position = Vector2( 559.973, 273.825 )
-
-[node name="Task" parent="." instance=ExtResource( 8 )]
-position = Vector2( 137.256, 408.685 )
 [connection signal="pressed" from="UI/Base/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="confirmed" from="UI/Base/ExitDialog" to="." method="_on_ExitDialog_confirmed"]

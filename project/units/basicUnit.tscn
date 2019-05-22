@@ -65,4 +65,6 @@ stretch_margin_top = 2
 stretch_margin_right = 10
 stretch_margin_bottom = 2
 
+[node name="Timer" type="Timer" parent="."]
 [connection signal="input_event" from="." to="." method="_on_unit_input_event"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

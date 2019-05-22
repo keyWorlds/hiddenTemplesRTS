@@ -83,24 +83,6 @@ func start_move_selection(obj):
 	for unit in selected_units:
 		unit.moveUnit(obj.moveToPoint)
 
-# resources
-
-var unitAtWork
-
-func set_task(resource):
-	if selected_units.size() > 0:
-		unitAtWork = selected_units[0]
-		unitAtWork.hasTask = true
-		print("task setted")
-
-func begin_task(resource):
-	if not unitAtWork.holdingResource:
-			print("begin task")
-
-func task_ended(resource):
-	unitAtWork.holdingResource = true
-	print("task ended")
-
 # gui
 
 ## exit game controller

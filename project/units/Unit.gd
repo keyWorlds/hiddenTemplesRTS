@@ -8,6 +8,7 @@ onready var box = $SelectionBox
 onready var label = $UnitLabel
 onready var lifebar = $LifeBar
 onready var sprite = $BasicUnitSprite
+onready var timer = $Timer
 
 signal was_selected
 signal was_unselected
@@ -89,4 +90,16 @@ func setup(pos, unitName):
 func changeName(unitName):
 	self.name = unitName
 	name = unitName
-	$UnitLabel.text = unitName
+	label.text = unitName
+
+# work
+
+func startTask():
+	hasTask = true
+	holdingResource = false
+	timer.start()
+
+func _on_Timer_timeout():
+	if hasTask:
+		holdingResource = true
+		hasTask = false
