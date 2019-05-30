@@ -102,5 +102,6 @@ position = Vector2( 647.136, 183.618 )
 
 [node name="UnitSpawner" type="Position2D" parent="."]
 position = Vector2( 559.973, 273.825 )
+
 [connection signal="pressed" from="UI/Base/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="confirmed" from="UI/Base/ExitDialog" to="." method="_on_ExitDialog_confirmed"]

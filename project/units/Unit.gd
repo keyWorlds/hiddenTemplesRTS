@@ -43,7 +43,7 @@ func _ready():
 
 func _process(delta):
 	if moveOnPath:
-		path = get_viewport().get_node("world/nav").get_simple_path(position, moveTo + Vector2(randi() % 100, randi() % 100))
+		path = get_viewport().get_node("world/nav").get_simple_path(position, moveTo)
 		initialPos = position
 		moveOnPath = false
 	if path.size() > 0:
