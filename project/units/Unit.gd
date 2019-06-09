@@ -94,7 +94,8 @@ func changeName(unitName):
 
 # work
 
-func startTask():
+func startTask(position):
+	moveUnit(position)
 	hasTask = true
 	holdingResource = false
 	timer.start()

@@ -41,7 +41,6 @@ margin_top = 345.081
 margin_right = 639.869
 margin_bottom = 365.081
 text = "Exit"
-
 [connection signal="pressed" from="StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="ExitButton" to="." method="_on_ExitButton_pressed"]
