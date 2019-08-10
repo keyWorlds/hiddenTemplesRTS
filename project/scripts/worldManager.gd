@@ -41,11 +41,18 @@ func deselect_unit(unit):
 # buildings
 
 func select_cu():
-	deselect_all_units()
-	create_cu_button()
+	if selected_units.empty():
+		deselect_all_units()
+		create_cu_button()
+	else:
+		units_take_shelter()
 
 func unselect_cu():
 	delete_cu_button()
+	
+func units_take_shelter():
+	for unit in selected_units:
+		unit.must_take_shelter = true
 
 # area selection (wip)
 

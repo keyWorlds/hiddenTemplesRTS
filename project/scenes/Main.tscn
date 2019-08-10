@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/worldManager.gd" type="Script" id=1]
 [ext_resource path="res://tileset/env.res" type="TileSet" id=2]
@@ -6,10 +6,12 @@
 [ext_resource path="res://scripts/Camera2D.gd" type="Script" id=4]
 [ext_resource path="res://scenes/sources/Farm.tscn" type="PackedScene" id=5]
 [ext_resource path="res://graphics/UI/blue_panel.png" type="Texture" id=6]
-[ext_resource path="res://scenes/CU.tscn" type="PackedScene" id=7]
-[ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/buildings/BaseBuilding.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/buildings/CU.tscn" type="PackedScene" id=8]
+[ext_resource path="res://building/Building.gd" type="Script" id=9]
+[ext_resource path="res://units/basicUnit.tscn" type="PackedScene" id=10]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Area2D
 
 const RESOURCE = 10
@@ -49,7 +51,7 @@ func set_unit_in_slot(unit):
 		unit.startTask(SLOT4.get_global_position())
 		return 4"
 
-[sub_resource type="NavigationPolygon" id=1]
+[sub_resource type="NavigationPolygon" id=2]
 vertices = PoolVector2Array( 1281.11, -2.70424, 1285.66, 894.765, 510.508, 296.268, 508.014, 128.236, -0.3367, 892.493, 368.646, 295.589, -2.60876, -0.432175, 365.282, 125.785 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 2, 1, 4, 5 ), PoolIntArray( 5, 4, 6, 7 ), PoolIntArray( 7, 6, 0, 3 ) ]
 outlines = [ PoolVector2Array( 1281.11, -2.70424, 1285.66, 894.765, -0.3367, 892.493, -2.60876, -0.432175 ), PoolVector2Array( 365.282, 125.785, 368.646, 295.589, 510.508, 296.268, 508.014, 128.236 ) ]
@@ -79,18 +81,18 @@ script = ExtResource( 4 )
 
 [node name="Farm1" parent="Sources" instance=ExtResource( 5 )]
 position = Vector2( 162.465, 379.224 )
-script = SubResource( 2 )
+script = SubResource( 1 )
 
 [node name="nav" type="Navigation2D" parent="."]
-editor/display_folded = true
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="nav"]
-navpoly = SubResource( 1 )
+navpoly = SubResource( 2 )
 
 [node name="UI" type="CanvasLayer" parent="."]
 editor/display_folded = true
 
 [node name="Base" type="Control" parent="UI"]
+editor/display_folded = true
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -128,24 +130,31 @@ margin_top = -343.674
 margin_right = 597.938
 margin_bottom = -273.674
 
-[node name="CU" parent="." instance=ExtResource( 7 )]
+[node name="Building" type="KinematicBody2D" parent="." instance=ExtResource( 7 )]
+position = Vector2( 898.886, 224.819 )
+
+[node name="CU" type="Area2D" parent="." instance=ExtResource( 8 )]
 position = Vector2( 437.184, 215.694 )
+scale = Vector2( 1.39628, 1.6436 )
+script = ExtResource( 9 )
 
-[node name="Unit" parent="." instance=ExtResource( 8 )]
+[node name="Unit" parent="." instance=ExtResource( 10 )]
 
-[node name="Unit4" parent="." instance=ExtResource( 8 )]
+[node name="Unit4" parent="." instance=ExtResource( 10 )]
 position = Vector2( 489.848, 354.174 )
 
-[node name="Unit5" parent="." instance=ExtResource( 8 )]
+[node name="Unit5" parent="." instance=ExtResource( 10 )]
 position = Vector2( 606.942, 71.3246 )
 
-[node name="Unit2" parent="." instance=ExtResource( 8 )]
+[node name="Unit2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 724.082, 353.522 )
 
-[node name="Unit3" parent="." instance=ExtResource( 8 )]
+[node name="Unit3" parent="." instance=ExtResource( 10 )]
 position = Vector2( 647.136, 183.618 )
 
 [node name="UnitSpawner" type="Position2D" parent="."]
 position = Vector2( 559.973, 273.825 )
 [connection signal="pressed" from="UI/Base/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="confirmed" from="UI/Base/ExitDialog" to="." method="_on_ExitDialog_confirmed"]
+[connection signal="body_entered" from="CU" to="CU" method="_on_CU_body_entered"]
+[connection signal="input_event" from="CU" to="CU" method="_on_building_input_event"]

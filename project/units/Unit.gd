@@ -24,6 +24,8 @@ var attack
 var holdingResource
 var hasTask
 
+var must_take_shelter
+
 func _ready():
 	connect("was_selected", get_parent(), "select_unit")
 	connect("was_unselected", get_parent(), "deselect_unit")
@@ -40,6 +42,8 @@ func _ready():
 	
 	holdingResource = false
 	hasTask = false
+	
+	must_take_shelter = false
 
 func _process(delta):
 	if moveOnPath:
