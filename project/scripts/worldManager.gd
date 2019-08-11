@@ -54,6 +54,16 @@ func units_take_shelter():
 	for unit in selected_units:
 		unit.must_take_shelter = true
 
+func select_source():
+	print("source is selected!")
+	if not selected_units.empty():
+		units_go_work()
+		print("units go work!")
+
+func units_go_work():
+	for unit in selected_units:
+		unit.must_go_work = true
+
 # area selection (wip)
 
 func areaSelected(obj):
