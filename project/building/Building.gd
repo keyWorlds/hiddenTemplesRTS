@@ -6,12 +6,14 @@ onready var box = $SelectionBox
 
 signal was_selected
 signal was_unselected
+signal pop_sheltered_unit
 
 var units_sheltered = []
 
 func _ready():
 	connect("was_selected", get_parent(), "select_cu")
 	connect("was_unselected", get_parent(), "unselect_cu")
+	
 	box.visible = false
 
 func set_selected(value):
@@ -37,3 +39,8 @@ func _on_CU_body_entered(body):
 		body.set_selected(false)
 		print("units sheltered " + String(units_sheltered.size()))
 		body.queue_free()
+
+func pop_sheltered_units():
+	if units_sheltered.size() > 0:
+		#var poped_unit = units_sheltered.pop_back()
+		print("poped units! (" + String(units_sheltered.size()) + ")")

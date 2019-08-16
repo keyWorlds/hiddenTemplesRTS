@@ -6,6 +6,7 @@ var unit_buttons = []
 
 var cu
 var create_brave_b
+var pop_button
 var spawner
 
 var resources = 0
@@ -14,6 +15,7 @@ onready var brave = preload("res://units/basicUnit.tscn")
 
 onready var button = preload("res://scenes/Buttons.tscn")
 onready var create_brave_button = preload("res://scenes/ButtonsCU.tscn")
+onready var popunit_button = preload("res://scenes/ButtonPop.tscn")
 onready var area2d = preload("res://scenes/Area2D.tscn")
 onready var exitDialog = get_node("UI/Base/ExitDialog")
 
@@ -143,11 +145,19 @@ func create_cu_button():
 	create_brave_b = create_brave_button.instance()
 	create_brave_b.connect_me(self, "Create brave")
 	create_brave_b.rect_position = Vector2(50, -90)
+	
+	pop_button = popunit_button.instance()
+	pop_button.connect_me(self, "Pop unit")
+	pop_button.rect_position = Vector2(200, -90) 
+	
 	$'UI/Base'.add_child(create_brave_b)
+	$'UI/Base'.add_child(pop_button)
 
 func delete_cu_button():
 	create_brave_b.queue_free()
+	pop_button.queue_free()
 	$'UI/Base'.remove_child(create_brave_b)
+	$'UI/Base'.remove_child(pop_button)
 
 func create_brave(obj):
 	var newUnit = brave.instance()
@@ -155,3 +165,6 @@ func create_brave(obj):
 	var unitName = "Brave" + str(units.size())
 	add_child(newUnit)
 	newUnit.setup(spawner.position, unitName)
+
+func pop_unit():
+	cu.pop_sheltered_units()
