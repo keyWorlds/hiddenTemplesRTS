@@ -1,11 +1,37 @@
 extends Control
 
-var loadedGames
+var loadedGames = [] 
 var selectedGame
+
+var SAVING_PATH = "user://saves"
+
+onready var list = get_node("LoadedGames")
 
 func _ready():
 	# load games and list
-	pass
+	read_files()
+
+func read_files():
+	var dir = Directory.new()
+	dir.open("user://")
+	if not dir.dir_exists(SAVING_PATH):
+		dir.make_dir(SAVING_PATH)
+	dir.open(SAVING_PATH)
+	
+	dir.list_dir_begin()
+	var file = dir.get_next()
+	while dir.get_next():
+		file = dir.get_next()
+		if file != "":
+			loadedGames.append(file)
+	dir.list_dir_end()
+	
+	load_saves_board()
+
+func load_saves_board():
+	# create label instances to add file name nodes
+	for file in loadedGames:
+		print(file)
 
 func _on_LoadedGames_item_selected(index):
 	selectedGame = loadedGames[index]
