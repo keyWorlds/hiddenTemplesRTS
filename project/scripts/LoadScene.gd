@@ -5,10 +5,9 @@ var selectedGame
 
 var SAVING_PATH = "user://saves"
 
-onready var list = get_node("LoadedGames")
-
 func _ready():
 	# load games and list
+	#print(OS.get_user_data_dir())
 	read_files()
 
 func read_files():
@@ -19,10 +18,11 @@ func read_files():
 	dir.open(SAVING_PATH)
 	
 	dir.list_dir_begin()
-	var file = dir.get_next()
-	while dir.get_next():
-		file = dir.get_next()
-		if file != "":
+	while true:
+		var file = dir.get_next()
+		if file == "":
+			break
+		if file.ends_with(".txt"):
 			loadedGames.append(file)
 	dir.list_dir_end()
 	
@@ -31,8 +31,8 @@ func read_files():
 func load_saves_board():
 	# create label instances to add file name nodes
 	for file in loadedGames:
-		print(file)
-
+		$LoadedGames.add_item(file, null, true)
+		
 func _on_LoadedGames_item_selected(index):
 	selectedGame = loadedGames[index]
 
@@ -42,4 +42,6 @@ func _on_CancelButton_pressed():
 func _on_LoadButton_pressed():
 	# load selected game info
 	# pass it to main scene, start game!
-	get_tree().change_scene("res://scenes/Main.tscn")
+	LoadedGames.loaded_game = selectedGame
+	if LoadedGames.loaded_game != null:
+		get_tree().change_scene("res://scenes/Main.tscn")

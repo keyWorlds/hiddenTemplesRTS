@@ -19,6 +19,10 @@ config/name="hiddenTemplesRTS"
 run/main_scene="res://scenes/Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+LoadedGames="*res://scripts/games_management/LoadedGames.gd"
+
 [input]
 
 ui_left_mouse_button={
