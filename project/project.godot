@@ -16,12 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="hiddenTemplesRTS"
-run/main_scene="res://scenes/Menu.tscn"
+run/main_scene="res://src/scenes/ui/Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-LoadedGames="*res://scripts/games_management/LoadedGames.gd"
+LoadedGames="*res://src/scripts/games_management/LoadedGames.gd"
 
 [input]
 
@@ -39,4 +39,4 @@ ui_right_mouse_button={
 [rendering]
 
 quality/driver/driver_name="GLES2"
-environment/default_environment="res://default_env.tres"
+environment/default_environment="res://assets/art/tileset/default_env.tres"
