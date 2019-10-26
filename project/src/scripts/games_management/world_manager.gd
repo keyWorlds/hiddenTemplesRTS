@@ -110,7 +110,7 @@ func _on_ExitButton_pressed():
 	exitDialog.popup()
 
 func _on_ExitDialog_confirmed():
-	get_tree().change_scene("res://scenes/Menu.tscn")
+	get_tree().change_scene("res://src/scenes/ui/Menu.tscn")
 	pass
 
 ## units

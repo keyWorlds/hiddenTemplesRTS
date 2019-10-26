@@ -37,11 +37,11 @@ func _on_LoadedGames_item_selected(index):
 	selectedGame = loadedGames[index]
 
 func _on_CancelButton_pressed():
-	get_tree().change_scene("res://scenes/Menu.tscn")
+	get_tree().change_scene("res://src/scenes/ui/Menu.tscn")
 
 func _on_LoadButton_pressed():
 	# load selected game info
 	# pass it to main scene, start game!
 	LoadedGames.loaded_game = selectedGame
 	if LoadedGames.loaded_game != null:
-		get_tree().change_scene("res://scenes/Main.tscn")
+		get_tree().change_scene("res://src/scenes/ui/Main.tscn")
