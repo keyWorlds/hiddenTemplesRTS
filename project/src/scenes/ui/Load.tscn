@@ -10,6 +10,9 @@ margin_top = 0.459799
 margin_right = 4.86072
 margin_bottom = 0.459778
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="LoadButton" type="Button" parent="."]
 margin_left = 69.1385
@@ -30,6 +33,7 @@ margin_left = 58.0
 margin_top = 29.0
 margin_right = 958.0
 margin_bottom = 479.0
+
 [connection signal="pressed" from="LoadButton" to="." method="_on_LoadButton_pressed"]
 [connection signal="pressed" from="CancelButton" to="." method="_on_CancelButton_pressed"]
 [connection signal="item_selected" from="LoadedGames" to="." method="_on_LoadedGames_item_selected"]

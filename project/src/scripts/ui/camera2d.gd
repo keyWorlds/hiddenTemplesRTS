@@ -40,9 +40,9 @@ func _ready():
 func _process(delta):
 	# smooth camera movement
 	var xmov = (int(Input.is_action_pressed("ui_right"))
-	                   - int(Input.is_action_pressed("ui_left")))
+					   - int(Input.is_action_pressed("ui_left")))
 	var ymov = (int(Input.is_action_pressed("ui_down"))
-	                   - int(Input.is_action_pressed("ui_up")))	
+					   - int(Input.is_action_pressed("ui_up")))	
 	position.x = lerp(position.x, position.x + xmov * camera_speed * zoom.x, camera_speed * delta)
 	position.y = lerp(position.y, position.y + ymov * camera_speed * zoom.y, camera_speed * delta)
 	

@@ -7,37 +7,28 @@
 [ext_resource path="res://assets/art/sprites/Tile/medievalTile_30.png" type="Texture" id=5]
 [ext_resource path="res://assets/art/sprites/Tile/medievalTile_57.png" type="Texture" id=6]
 
-
 [node name="Node2D" type="Node2D"]
 
-[node name="medievalTile_02" type="Sprite" parent="." index="0"]
-
+[node name="medievalTile_02" type="Sprite" parent="."]
 position = Vector2( 320, 64 )
 texture = ExtResource( 1 )
 
-[node name="medievalTile_14" type="Sprite" parent="." index="1"]
-
+[node name="medievalTile_14" type="Sprite" parent="."]
 position = Vector2( 256, 64 )
 texture = ExtResource( 2 )
 
-[node name="medievalTile_15" type="Sprite" parent="." index="2"]
-
+[node name="medievalTile_15" type="Sprite" parent="."]
 position = Vector2( 448, 64 )
 texture = ExtResource( 3 )
 
-[node name="medievalTile_28" type="Sprite" parent="." index="3"]
-
+[node name="medievalTile_28" type="Sprite" parent="."]
 position = Vector2( 192, 64 )
 texture = ExtResource( 4 )
 
-[node name="medievalTile_30" type="Sprite" parent="." index="4"]
-
+[node name="medievalTile_30" type="Sprite" parent="."]
 position = Vector2( 384, 64 )
 texture = ExtResource( 5 )
 
-[node name="medievalTile_57" type="Sprite" parent="." index="5"]
-
+[node name="medievalTile_57" type="Sprite" parent="."]
 position = Vector2( 128, 64 )
 texture = ExtResource( 6 )
-
-

@@ -1,7 +1,7 @@
 extends Control
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://src/scenes/ui/Main.tscn")
+	get_tree().change_scene("res://src/scenes/Main.tscn")
 
 func _on_LoadButton_pressed():
 	get_tree().change_scene("res://src/scenes/ui/Load.tscn")

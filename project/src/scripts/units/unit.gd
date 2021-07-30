@@ -27,12 +27,16 @@ var hasTask
 var must_take_shelter
 var must_go_work
 
+var nav2d
+
 func _ready():
 	connect("was_selected", get_parent(), "select_unit")
 	connect("was_unselected", get_parent(), "deselect_unit")
 	
 	life = 10
 	attack = 5
+	
+	nav2d = get_viewport().get_node("world/nav")
 	
 	box.visible = false
 	label.visible = false
@@ -49,7 +53,7 @@ func _ready():
 
 func _process(delta):
 	if moveOnPath:
-		path = get_viewport().get_node("world/nav").get_simple_path(position, moveTo)
+		path = nav2d.get_simple_path(position, moveTo)
 		initialPos = position
 		moveOnPath = false
 	if path.size() > 0:
