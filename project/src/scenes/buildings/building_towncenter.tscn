@@ -34,4 +34,5 @@ visible = false
 position = Vector2( 0.482788, 0.0622406 )
 scale = Vector2( 3.97862, 4.68669 )
 shape = SubResource( 1 )
+
 [connection signal="input_event" from="." to="." method="_on_building_input_event"]

@@ -6,10 +6,6 @@
 [ext_resource path="res://assets/art/UI/red_tick.png" type="Texture" id=4]
 [ext_resource path="res://assets/art/UI/green_circle.png" type="Texture" id=5]
 
-
-
-
-
 [sub_resource type="RectangleShape2D" id=1]
 
 [sub_resource type="DynamicFontData" id=2]
@@ -72,5 +68,6 @@ stretch_margin_right = 10
 stretch_margin_bottom = 2
 
 [node name="Timer" type="Timer" parent="."]
+
 [connection signal="input_event" from="." to="." method="_on_unit_input_event"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

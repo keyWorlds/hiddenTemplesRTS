@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/art/tileset/env.res" type="TileSet" id=1]
+[ext_resource path="res://src/scripts/env/WalkableArea.gd" type="Script" id=2]
+[ext_resource path="res://assets/art/tileset/paths.res" type="TileSet" id=3]
+
+[sub_resource type="NavigationPolygon" id=1]
+vertices = PoolVector2Array( 191.779, 383.761, 187.536, 255.068, 258.247, 255.068, 254.004, 389.418, 825.96, 253.116, 829.74, 384.147, 768.003, 385.407, 768.003, 251.856, 446.337, 513.869, 258.995, 125.864, 445.464, 128.383, 577.859, 511.04, 576.445, 580.337, 449.166, 577.509, 446.724, 64.1275, 573.976, 66.6473, 575.235, 127.124, 768.003, 127.124, 255.419, 513.869, 768.003, 506.36 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 4, 5, 6, 7 ), PoolIntArray( 8, 2, 9, 10, 11 ), PoolIntArray( 11, 12, 13, 8 ), PoolIntArray( 10, 14, 15, 16, 11 ), PoolIntArray( 16, 17, 7, 11 ), PoolIntArray( 8, 18, 3, 2 ), PoolIntArray( 6, 19, 11 ), PoolIntArray( 11, 7, 6 ) ]
+outlines = [ PoolVector2Array( 258.995, 125.864, 445.464, 128.383, 446.724, 64.1275, 573.976, 66.6473, 575.235, 127.124, 768.003, 127.124, 768.003, 251.856, 825.96, 253.116, 829.74, 384.147, 768.003, 385.407, 768.003, 506.36, 577.859, 511.04, 576.445, 580.337, 449.166, 577.509, 446.337, 513.869, 255.419, 513.869, 254.004, 389.418, 191.779, 383.761, 187.536, 255.068, 258.247, 255.068 ) ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 317.265, 257.309 )
+
+[node name="WalkableArea" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Navigation2D" type="Navigation2D" parent="."]
+
+[node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D"]
+navpoly = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 511.692, 319.479 )
+shape = SubResource( 2 )
+
+[node name="tiles" type="Node2D" parent="."]
+
+[node name="tm_env" type="TileMap" parent="tiles"]
+tile_set = ExtResource( 1 )
+format = 1
+tile_data = PoolIntArray( 65543, 5, 0, 65544, 5, 0, 131076, 5, 0, 131077, 5, 0, 131078, 5, 0, 131079, 5, 0, 131080, 5, 0, 131081, 5, 0, 131082, 5, 0, 131083, 5, 0, 196612, 5, 0, 196613, 5, 0, 196614, 5, 0, 196615, 5, 0, 196616, 5, 0, 196617, 5, 0, 196618, 5, 0, 196619, 5, 0, 262147, 5, 0, 262148, 5, 0, 262149, 5, 0, 262150, 5, 0, 262151, 5, 0, 262152, 5, 0, 262153, 5, 0, 262154, 5, 0, 262155, 5, 0, 262156, 5, 0, 327683, 5, 0, 327684, 5, 0, 327685, 5, 0, 327686, 5, 0, 327687, 5, 0, 327688, 5, 0, 327689, 5, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393225, 5, 0, 393226, 5, 0, 393227, 5, 0, 458756, 5, 0, 458757, 5, 0, 458758, 5, 0, 458759, 5, 0, 458760, 5, 0, 458761, 5, 0, 458762, 5, 0, 458763, 5, 0, 524295, 5, 0, 524296, 5, 0 )
+
+[node name="tm_paths" type="TileMap" parent="tiles"]
+position = Vector2( 1.85059, 0 )
+tile_set = ExtResource( 3 )
+format = 1
+
+[connection signal="body_entered" from="." to="." method="_on_WalkableArea_body_entered"]

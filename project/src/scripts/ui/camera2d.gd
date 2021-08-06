@@ -46,16 +46,16 @@ func _process(delta):
 	position.x = lerp(position.x, position.x + xmov * camera_speed * zoom.x, camera_speed * delta)
 	position.y = lerp(position.y, position.y + ymov * camera_speed * zoom.y, camera_speed * delta)
 	
-	if Input.is_key_pressed(KEY_CONTROL):
+#	if Input.is_key_pressed(KEY_CONTROL):
 		#check mousepos
-		if mousepos.x < marginX:
-			position.x = lerp(position.x, position.x - abs(mousepos.x - marginX)/marginX * panSpeed * zoom.x, panSpeed * delta)
-		elif mousepos.x > OS.window_size.x - marginX:
-			position.x = lerp(position.x, position.x + abs(mousepos.x - OS.window_size.x + marginX)/marginX *  panSpeed * zoom.x, panSpeed * delta)
-		if mousepos.y < marginY:
-			position.y = lerp(position.y, position.y - abs(mousepos.y - marginY)/marginY * panSpeed * zoom.y, panSpeed * delta)
-		elif mousepos.y > OS.window_size.y - marginY:
-			position.y = lerp(position.y, position.y + abs(mousepos.y - OS.window_size.y + marginY)/marginY * panSpeed * zoom.y, panSpeed * delta)
+#		if mousepos.x < marginX:
+#			position.x = lerp(position.x, position.x - abs(mousepos.x - marginX)/marginX * panSpeed * zoom.x, panSpeed * delta)
+#		elif mousepos.x > OS.window_size.x - marginX:
+#			position.x = lerp(position.x, position.x + abs(mousepos.x - OS.window_size.x + marginX)/marginX *  panSpeed * zoom.x, panSpeed * delta)
+#		if mousepos.y < marginY:
+#			position.y = lerp(position.y, position.y - abs(mousepos.y - marginY)/marginY * panSpeed * zoom.y, panSpeed * delta)
+#		elif mousepos.y > OS.window_size.y - marginY:
+#			position.y = lerp(position.y, position.y + abs(mousepos.y - OS.window_size.y + marginY)/marginY * panSpeed * zoom.y, panSpeed * delta)
 
 	# draggin!
 	if Input.is_action_just_pressed("ui_left_mouse_button"):

@@ -1,48 +1,51 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://src/scripts/ui/Menu.gd" type="Script" id=1]
-[ext_resource path="res://assets/art/sprites/populous-the-beginning_6.jpg" type="Texture" id=2]
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.25992
+margin_bottom = -1.25989
 script = ExtResource( 1 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 578.833, 257.816 )
-scale = Vector2( 2.10839, 1.85209 )
-texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Label" type="Label" parent="."]
-margin_left = 494.681
-margin_top = 234.09
-margin_right = 597.681
-margin_bottom = 265.09
+margin_left = 472.002
+margin_top = 224.011
+margin_right = 575.002
+margin_bottom = 255.011
 text = "Hidden temples
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="StartButton" type="Button" parent="."]
-margin_left = 467.615
-margin_top = 278.156
-margin_right = 641.615
-margin_bottom = 298.156
+margin_left = 434.857
+margin_top = 264.297
+margin_right = 608.857
+margin_bottom = 284.297
 text = "Start game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="LoadButton" type="Button" parent="."]
-margin_left = 467.033
-margin_top = 310.746
-margin_right = 641.033
-margin_bottom = 330.746
+margin_left = 434.275
+margin_top = 296.887
+margin_right = 608.275
+margin_bottom = 316.887
+disabled = true
 text = "Load game"
 
 [node name="ExitButton" type="Button" parent="."]
-margin_left = 465.869
-margin_top = 345.081
-margin_right = 639.869
-margin_bottom = 365.081
+margin_left = 433.111
+margin_top = 331.222
+margin_right = 607.111
+margin_bottom = 351.222
 text = "Exit"
 __meta__ = {
 "_edit_use_anchors_": false
